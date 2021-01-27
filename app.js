@@ -21,6 +21,8 @@ const { restoreDefaultPrompts } = require("inquirer");
 // `output` folder. You can use the variable `outputPath` above target this location.
 // Hint: you may need to check if the `output` folder exists and create it if it
 // does not.
+
+
 let team = [];
 
 function renderHTMl(){
@@ -92,7 +94,12 @@ function renderManager(answers) {
             console.log(newManager)
 
             team.push(newManager)
-            
+            let results = render(team);
+
+            fs.writeFile(outputPath, results, (err) => {
+                if (err) throw err;
+                console.log("This profile has been saved.");
+            });
             addProfile();
             // return 
         });
@@ -116,7 +123,10 @@ function renderEngineer(answers) {
 
             team.push(newEngineer)
             let results = render(team);
-         
+            fs.writeFile(outputPath, results, (err) => {
+                if (err) throw err;
+                console.log("This profile has been saved.");
+            });
             addProfile();
             // return 
         });
@@ -141,21 +151,23 @@ function renderIntern(answers) {
 
             team.push(newIntern)
             let results = render(team);
-          
+            fs.writeFile(outputPath, results, (err) => {
+                if (err) throw err;
+                console.log("This profile has been saved.");
+            });
             addProfile();
             // return 
         });
 };
 
-async function addProfile() {
+function addProfile() {
     inquirer
         .prompt([
 
             {
                 type: "confirm",
                 name: "add",
-                message: "Would you like to add another team member?",
-                default: true,
+                message: "Would you like to add another team member",
             },
 
         ])
@@ -166,6 +178,8 @@ async function addProfile() {
                 default:
                     return console.log("profile completed")
             }
+
+
         });
 };
 
@@ -174,7 +188,6 @@ async function addProfile() {
 
 
 createProfile();
-
 
 
 
