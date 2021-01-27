@@ -10,10 +10,12 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+const { restoreDefaultPrompts } = require("inquirer");
+
+let team = [];
 
 
-
-function createProfile(res) {
+function createProfile() {
     inquirer
         .prompt([
 
@@ -40,23 +42,25 @@ function createProfile(res) {
                     "Manager",
                     "Engineer",
                     "Intern",
+                    "Exit Profile Generator",
                 ]
             },
         ])
-    .then((response) => {
-        const role = response.role
-        switch (role) {
-            case "Manager":
-                return renderManager(response);
-
-            case "Engineer":
-                return renderEngineer(response);
-            case "Intern":
-                return renderIntern(response);
-            default:
-                return addProfile();
-        };
-    });
+        .then((employee) => {
+            const role = employee.role
+            switch (role) {
+                case "Manager":
+                    return renderManager(employee);
+                case "Engineer":
+                    return renderEngineer(employee);
+                case "Intern":
+                    return renderIntern(employee);
+                case "Exit Profile Generator":
+                    return generateHTMl();
+                default:
+                    return addProfile();
+            };
+        });
 };
 
 function renderManager(answers) {
@@ -73,6 +77,14 @@ function renderManager(answers) {
         .then((roleAnswer) => {
             const newManager = new Manager(answers.name, answers.id, answers.email, roleAnswer.officeNumber)
             console.log(newManager)
+
+            team.push(newManager)
+            let results = render(team);
+            
+            fs.writeFile(outputPath, results, (err) => {
+                if (err) throw err;
+                console.log("This profile has been saved.");
+            });
             addProfile();
             // return 
         });
@@ -93,6 +105,13 @@ function renderEngineer(answers) {
         .then((roleAnswer) => {
             const newEngineer = new Engineer(answers.name, answers.id, answers.email, roleAnswer.github)
             console.log(newEngineer)
+
+            team.push(newEngineer)
+            let results = render(team);
+            fs.writeFile(outputPath, results, (err) => {
+                if (err) throw err;
+                console.log("This profile has been saved.");
+            });
             addProfile();
             // return 
         });
@@ -112,6 +131,13 @@ function renderIntern(answers) {
         .then((roleAnswer) => {
             const newIntern = new Intern(answers.name, answers.id, answers.email, roleAnswer.school)
             console.log(newIntern)
+
+            team.push(newIntern)
+            let results = render(team);
+            fs.writeFile(outputPath, results, (err) => {
+                if (err) throw err;
+                console.log("This profile has been saved.");
+            });
             addProfile();
             // return 
         });
@@ -129,18 +155,22 @@ function addProfile() {
 
         ])
         .then((userAnswer) => {
-            userAnswer.continue ? createProfile() : outputPath
+            switch (userAnswer) {
+                case false:
+                    return createProfile();
+                default:
+                    return console.log("profile completed")
+            }
+
+
         });
 };
 
 
-async function generateHTML(answers) {
-    const renderHTML = render(file), {
-
-    }
+function generateHTMl(){
+    fs.writeFileSync(outputPath, render(team))
 }
 
-generateHTML();
 
 createProfile();
 
