@@ -80,7 +80,7 @@ function renderManager(answers) {
 
             team.push(newManager)
             let results = render(team);
-            
+
             fs.writeFile(outputPath, results, (err) => {
                 if (err) throw err;
                 console.log("This profile has been saved.");
@@ -116,6 +116,8 @@ function renderEngineer(answers) {
             // return 
         });
 };
+
+fs
 
 function renderIntern(answers) {
     inquirer
@@ -156,7 +158,7 @@ function addProfile() {
         ])
         .then((userAnswer) => {
             switch (userAnswer) {
-                case false:
+                case true:
                     return createProfile();
                 default:
                     return console.log("profile completed")
