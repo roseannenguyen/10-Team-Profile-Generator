@@ -160,6 +160,7 @@ function renderIntern(answers) {
         });
 };
 
+
 function addProfile() {
     inquirer
         .prompt([
@@ -167,11 +168,13 @@ function addProfile() {
             {
                 type: "confirm",
                 name: "add",
-                message: "Would you like to add another team member",
+                message: "Would you like to add another team member?",
+                default: true
             },
 
         ])
         .then((userAnswer) => {
+            team.push(userAnswer);
             switch (userAnswer) {
                 case true:
                     return createProfile();
