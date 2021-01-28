@@ -25,7 +25,7 @@ const { restoreDefaultPrompts } = require("inquirer");
 
 let team = [];
 
-function renderHTMl(){
+function renderHTML() {
     fs.writeFileSync(outputPath, render(team))
 }
 
@@ -71,7 +71,7 @@ function createProfile() {
                 case "Intern":
                     return renderIntern(employee);
                 case "Exit Profile Generator":
-                    return renderHTMl();
+                    return renderHTML();
                 default:
                     return addProfile();
             };
@@ -174,20 +174,15 @@ function addProfile() {
 
         ])
         .then((userAnswer) => {
-            team.push(userAnswer);
-            switch (userAnswer) {
+
+            switch (userAnswer.add) {
                 case true:
                     return createProfile();
                 default:
                     return console.log("profile completed")
             }
-
-
         });
 };
-
-
-
 
 
 createProfile();
