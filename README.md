@@ -15,9 +15,9 @@
 
 
   ## Description:
-This will build a software engineering team generator command line application. The application will prompt the user for information about the team manager and then information about the team members. The user can input any number of team members, and they may be a mix of engineers and interns. The Team Profile Generator Example generated and a [video walk through](https://drive.google.com/file/d/1I3Dst-5qYHae-3kACWdsvX0ES_Xc4KtP/view) of the application is located in the [assets directory.](https://github.com/roseannenguyen/09-ReadMe-Generator/tree/main/assets)
+This will build a software engineering team generator command line application. The application will prompt the user for information about the team manager and then information about the team members. The user can input any number of team members, and they may be a mix of engineers and interns. The Team Profile Generator Example generated and a [video walk through](https://drive.google.com/file/d/1I3Dst-5qYHae-3kACWdsvX0ES_Xc4KtP/view) of the application is located in the [assets directory.](https://github.com/roseannenguyen/10-Team-Profile-Generator/tree/main/assets)
 
-![Below is an example of the ReadMe Generator:](./assets/teamprofile.gif)
+![Below is an example of the ReadMe Generator:](./assets/example.gif)
 
 <a name="userstory"></a>
 ## User Story
