@@ -54,7 +54,7 @@ This was used for learning purposes for the University of Arizona's Coding Boot 
 
 ## Test:
 
-Four Tests were installed for this projected:
+Four Tests were installed for this application:
 
 - employee.js
 
