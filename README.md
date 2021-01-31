@@ -1,7 +1,7 @@
 ![badge](https://img.shields.io/github/last-commit/roseannenguyen/10-Team-Profile-Generator) ![badge](https://img.shields.io/badge/license-MIT-informational) ![badge](https://img.shields.io/github/languages/top/roseannenguyen/10-Team-Profile-Generator)  ![badge](https://img.shields.io/github/languages/count/roseannenguyen/10-Team-Profile-Generator)
 
 # Team Profile Generator
-<i class="fas fa-laptop-code"></i>[Link to Example of Completed Profile](https://htmlpreview.github.io/?https://github.com/roseannenguyen/10-Team-Profile-Generator/blob/main/output/teamExample.html)
+:computer: [Link to Example of Completed Profile](https://htmlpreview.github.io/?https://github.com/roseannenguyen/10-Team-Profile-Generator/blob/main/output/teamExample.html)
 
 ## Table of Contents
 
