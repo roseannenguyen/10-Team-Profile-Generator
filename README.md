@@ -50,17 +50,17 @@ npm inquirer package
 
 
   ## Test:
-```text
+
 Four Tests were installed for this projected:
 
-  * `employee.js`
+  * employee.js
 
-  * `engineer.js`
+  * engineer.js
   
-  * `intern.js`
+  * intern.js
   
-  * `manager.js`
-```
+  * manager.js
+
   
   ## Questions:
  If you have any questions about the project, please feel free to email: roseannenguyen@protonmail.com
